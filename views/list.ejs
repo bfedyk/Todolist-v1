@@ -1,0 +1,29 @@
+<!-- Header information moved to header.ejs -->
+<%- include("header") -%>
+
+    <div class="box" id="heading">
+      <h1><%= listTitle %></h1>
+    </div>
+
+    <!-- Still us EJS templating -->
+    <div class="box">
+      <% for (var i = 0; i < newListItems.length; i++) { %>
+        <div class="item">
+          <input type="checkbox">
+          <p><%= newListItems[i] %></p>
+        </div>
+      <% } %>
+
+    <!-- Add the form as the last item in the item box class-->
+      <form class="item" action="/" method="POST">
+        <input type="text" placeholder="New Item" name="newItem" required autofocus autocomplete="off">
+
+        <!-- Enclose listTitle sciptlet in "" to capture the whole
+             string: Work List.
+            Otherwise if no "" used then only the first word "Work" is
+            captured -->
+        <button type="submit" name="list" value="<%= listTitle %>">+</button>
+      </form>
+    </div>
+
+    <%- include("footer") -%>

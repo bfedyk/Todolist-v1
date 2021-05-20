@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+  </head>
+  <body>
+
+    <!-- Change code to use EJS scriptlet tags -->
+    <!--<% if (kindOfDay == "Saturday" || kindOfDay == "Sunday") { %>
+      <h1 style="color : purple"><%= kindOfDay %> ToDo List</h1>
+    <% } else { %>
+      <h1 style="color : blue"><%= kindOfDay %> ToDo List</h1>
+    <% } %>
+  -->
+
+  <!-- Comment out above scriptlet, as will use
+       the javascript method toLocaleDateString() in
+       app.js file -->
+
+    <!-- Still use EJS templating to pass the date into here -->
+    <h1><%= kindOfDay %></h1>
+
+    <ul>
+      <!-- <li>Buy Food</li>
+      <li>Cook Food</li>
+      <li>Eat Food</li> -->
+      <!-- Use EJS templating for new item
+           Need a for look so that each item in the
+           array will get displayed as a new list item
+           on a separate line-->
+      <% for (var i = 0; i < newListItems.length; i++) { %>
+          <li> <%= newListItems[i] %> </li>
+        <% } %>
+    </ul>
+
+    <form action="/" method="POST">
+      <input type="text" placeholder="New To Do Item" name="newItem" required autofocus>
+      <button type="submit" name="button">Add Item</button>
+    </form>
+  </body>
+</html>

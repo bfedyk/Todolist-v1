@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <!--
+    Start applying the CSS styling to the website
+    E.g. put heading in div 'box'
+    Get rid of ul and li, put each li item into a div
+  -->
+  <body>
+
+  <!-- Change title to listTitle from kindOFDay-->
+    <div class="box" id="heading">
+      <h1><%= listTitle %></h1>
+    </div>
+
+    <!-- Still us EJS templating -->
+    <div class="box">
+      <% for (var i = 0; i < newListItems.length; i++) { %>
+        <div class="item">
+          <input type="checkbox">
+          <p><%= newListItems[i] %></p>
+        </div>
+      <% } %>
+
+    <!-- Add the form as the last item in the item box class-->
+      <form class="item" action="/" method="POST">
+        <input type="text" placeholder="New Item" name="newItem" required autofocus autocomplete="off">
+
+        <!-- Change button name to 'list'
+             Assign this button a vlue field of 'listTitle'
+              - the same as the value in the header i.e.
+              the vallue of listTitle is passinto the submit tag-->
+        <button type="submit" name="list" value=<%= listTitle %>>+</button>
+      </form>
+    </div>
+
+  </body>
+</html>
